@@ -22,7 +22,7 @@ export const CatalogPage = (props) => {
                 }
             </ul>
         </aside>
-        <div className={ styles.mainContent }>
+        <div className={ styles.contentMain }>
             {
                 activeSection.books.map((book) =>
                     <Item id={ book.id }

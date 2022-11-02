@@ -14,19 +14,22 @@ export const Item = (
     const [count, setCount] = useState(0);
 
     return <div className={ styles.item }>
-        <div className={ styles.content }>
-            <h2>{ title }</h2>
-            <ul>
-                <li>{ author }</li>
-                <li>{ genre }</li>
-                <li>{ rating }</li>
-            </ul>
-            <p>{ price }₽</p>
-        </div>
         <div>
-            <button className={ styles.counterBtn } onClick={() => setCount(count - 1)} disabled={count === 0}>-</button>
-            {count}
-            <button className={ styles.counterBtn } onClick={() => setCount(count + 1)}>+</button>
+            <div className={ styles.title }>{ title }</div>
+            <ul className={ styles.infoUl }>
+                <li className={ styles.infoLi }>{ author }</li>
+                <li className={ styles.infoLi }>{ genre }</li>
+                <li className={ styles.infoLi }>{ rating } / 5</li>
+            </ul>
+            <p className={ styles.price }>{ price }₽</p>
+        </div>
+        <div className={ styles.counterBlock }>
+            <button className={ styles.counterBtn }
+                    onClick={() => setCount(count - 1)}
+                    disabled={count === 0}>-</button>
+            <div className={ styles.counterText }>{count}</div>
+            <button className={ styles.counterBtn }
+                    onClick={() => setCount(count + 1)}>+</button>
         </div>
     </div>
 }
