@@ -8,7 +8,8 @@ export const Item = (
         rating= 0,
         price= 0,
         genre='Жанр',
-        author='Автор'
+        author='Автор',
+        id,
     }) => {
     const [count, setCount] = useState(0);
 
