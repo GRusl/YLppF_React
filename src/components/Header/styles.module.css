@@ -1,0 +1,21 @@
+.header {
+    height: 40px;
+    padding: 10px 50px;
+
+    background-color: #000;
+}
+
+.header .title {
+    color: #fff;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+.header .icon {
+    height: 40px;
+}
+
+.header .right {
+    float: right;
+    display: inline-block;
+}
