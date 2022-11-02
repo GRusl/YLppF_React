@@ -1,4 +1,4 @@
-import styles from './App.css'
+import styles from './styles.module.css'
 
 import {Header} from './components/Header/Header';
 import {CatalogPage} from "./pages/CatalogPage/Catalog";
@@ -10,6 +10,7 @@ function App() {
     return (
         <>
             <Header/>
+
             <main className={ styles.main }>
                 <CatalogPage sections={ sections }/>
             </main>

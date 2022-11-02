@@ -1,4 +1,4 @@
-// import styles from './styles.module.css';
+import styles from './styles.module.css';
 
 import {useState} from "react";
 
@@ -13,18 +13,20 @@ export const Item = (
     }) => {
     const [count, setCount] = useState(0);
 
-    return <div>
-        <h2>{ title }</h2>
-        <ul>
-            <li>{ author }</li>
-            <li>{ genre }</li>
-            <li>{ rating }</li>
-        </ul>
-        <p>{ price }₽</p>
+    return <div className={ styles.item }>
+        <div className={ styles.content }>
+            <h2>{ title }</h2>
+            <ul>
+                <li>{ author }</li>
+                <li>{ genre }</li>
+                <li>{ rating }</li>
+            </ul>
+            <p>{ price }₽</p>
+        </div>
         <div>
-            <button onClick={() => setCount(count - 1)} disabled={count === 0}>-</button>
+            <button className={ styles.counterBtn } onClick={() => setCount(count - 1)} disabled={count === 0}>-</button>
             {count}
-            <button onClick={() => setCount(count + 1)}>+</button>
+            <button className={ styles.counterBtn } onClick={() => setCount(count + 1)}>+</button>
         </div>
     </div>
 }

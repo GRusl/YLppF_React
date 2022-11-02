@@ -1,0 +1,12 @@
+.content {
+    display: flex;
+    align-items: stretch;
+}
+
+.links-list {
+
+}
+
+.main-content {
+    width: 100%;
+}
