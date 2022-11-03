@@ -3,8 +3,27 @@
     align-items: stretch;
 }
 
-.links-list {
+.linksList {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
 
+    width: 30%;
+}
+
+.linkUl {
+    padding: 0;
+}
+
+.linkLi {
+    list-style-type: none;
+    color: #646464;
+}
+
+.linkLi_active {
+    font-weight: bold;
+    color: #000;
 }
 
 .contentMain {
