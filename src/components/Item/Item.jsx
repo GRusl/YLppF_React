@@ -5,27 +5,19 @@ import classnames from 'classnames';
 
 import {useState} from "react";
 
-export const Item = (
-    {
-        title='Название',
-        rating= 0,
-        price= 0,
-        genre='Жанр',
-        author='Автор',
-        id,
-    }) => {
+export const Item = ({book}) => {
     const [count, setCount] = useState(0);
 
     return (
         <div className={ classnames(styles.item, base_styles.card) }>
             <div>
-                <div className={ styles.title }>{ title }</div>
+                <div className={ styles.title }>{ book.title }</div>
                 <ul className={ styles.infoUl }>
-                    <li className={ styles.infoLi }>{ author }</li>
-                    <li className={ styles.infoLi }>{ genre }</li>
-                    <li className={ styles.infoLi }>{ rating } / 5</li>
+                    <li className={ styles.infoLi }>{ book.author }</li>
+                    <li className={ styles.infoLi }>{ book.genre }</li>
+                    <li className={ styles.infoLi }>{ book.rating } / 5</li>
                 </ul>
-                <p className={ styles.price }>{ price }₽</p>
+                <p className={ styles.price }>{ book.price }₽</p>
             </div>
             <div className={ styles.counterBlock }>
                 <button className={ styles.counterBtn }

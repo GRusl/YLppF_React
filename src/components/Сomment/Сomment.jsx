@@ -3,22 +3,16 @@ import base_styles from '../../styles.module.css';
 
 // import {useState} from "react";
 
-export const Сomment = (
-    {
-        name='Имя',
-        rating= 0,
-        text= '---',
-    }) => {
-
+export const Сomment = ({comment}) => {
     return (
         <div className={ base_styles.card }>
             <a className={ styles.name } href="/">
-                { name }
+                { comment.name }
             </a>
             <div className={ styles.right }>
-                    { rating }
+                    { comment.rating }
                 </div>
-            <p>{ text }</p>
+            <p>{ comment.text }</p>
         </div>
     )
 }

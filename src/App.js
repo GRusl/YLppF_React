@@ -16,7 +16,7 @@ function App() {
                 {
                     // <CatalogPage sections={ sections }/>
                 }
-                <DetailPage/>
+                <DetailPage sections={ sections }/>
             </main>
         </>
     );
