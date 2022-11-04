@@ -7,20 +7,19 @@ import styles from "./styles.module.css"
 import base_styles from '../../styles.module.css';
 
 export const DetailPage = (props) => {
-    const book = props.sections[0].books[0]
 
     return (
         <>
             <div className={ styles.infoBlock }>
-                <Item className={ styles.dataBlock } book={ book } />
+                <Item className={ styles.dataBlock } book={ props.book } />
                 <section className={ classnames(styles.annotationBlock, base_styles.card) }>
                     <h2 className={ styles.annotationTitle }>Аннотация</h2>
-                    <p>{ book.annotation }</p>
+                    <p>{ props.book.annotation }</p>
                 </section>
             </div>
 
             {
-                book.comments.map((comment) =>
+                props.book.comments.map((comment) =>
                     <Сomment comment={ comment } />
                 )
             }
