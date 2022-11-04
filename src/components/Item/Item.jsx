@@ -5,12 +5,12 @@ import classnames from 'classnames';
 
 import {useState} from "react";
 
-export const Item = ({book}) => {
+export const Item = ({book, className=0}) => {
     const [count, setCount] = useState(0);
 
     return (
-        <div className={ classnames(styles.item, base_styles.card) }>
-            <div>
+        <div className={ classnames(styles.item, base_styles.card, className) }>
+            <div className={ styles.infoBlock }>
                 <div className={ styles.title }>{ book.title }</div>
                 <ul className={ styles.infoUl }>
                     <li className={ styles.infoLi }>{ book.author }</li>

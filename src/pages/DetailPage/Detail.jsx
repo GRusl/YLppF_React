@@ -14,7 +14,8 @@ export const DetailPage = (props) => {
             <div className={ styles.infoBlock }>
                 <Item className={ styles.dataBlock } book={ book } />
                 <div className={ classnames(styles.annotationBlock, base_styles.card) }>
-                    { book.annotation }
+                    <h2 className={ styles.annotationTitle }>Аннотация</h2>
+                    <p>{ book.annotation }</p>
                 </div>
             </div>
 
