@@ -1,4 +1,7 @@
 import styles from './styles.module.css';
+import base_styles from '../../styles.module.css';
+
+import classnames from 'classnames';
 
 import {useState} from "react";
 
@@ -14,7 +17,7 @@ export const Item = (
     const [count, setCount] = useState(0);
 
     return (
-        <div className={ styles.item }>
+        <div className={ classnames(styles.item, base_styles.card) }>
             <div>
                 <div className={ styles.title }>{ title }</div>
                 <ul className={ styles.infoUl }>

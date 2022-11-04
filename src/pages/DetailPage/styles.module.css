@@ -1,0 +1,14 @@
+.infoBlock {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.dataBlock {
+    width: 50%;
+}
+
+.annotationBlock {
+    width: 50%;
+}
