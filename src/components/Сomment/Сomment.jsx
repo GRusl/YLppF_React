@@ -12,10 +12,12 @@ export const Сomment = (
 
     return (
         <div className={ base_styles.card }>
-            <div>
-                <div>{ name }</div>
-                <div>{ rating }</div>
-            </div>
+            <a className={ styles.name } href="/">
+                { name }
+            </a>
+            <div className={ styles.right }>
+                    { rating }
+                </div>
             <p>{ text }</p>
         </div>
     )
