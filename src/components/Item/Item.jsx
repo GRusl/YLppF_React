@@ -9,7 +9,7 @@ export const Item = ({book, className=0}) => {
     const [count, setCount] = useState(0);
 
     return (
-        <div className={ classnames(styles.item, base_styles.card, className) }>
+        <section className={ classnames(styles.item, base_styles.card, className) }>
             <div className={ styles.infoBlock }>
                 <div className={ styles.title }>{ book.title }</div>
                 <ul className={ styles.infoUl }>
@@ -27,6 +27,6 @@ export const Item = ({book, className=0}) => {
                 <button className={ styles.counterBtn }
                         onClick={() => setCount(count + 1)}>+</button>
             </div>
-        </div>
+        </section>
     )
 }

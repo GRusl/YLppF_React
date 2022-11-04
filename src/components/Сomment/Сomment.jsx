@@ -5,14 +5,14 @@ import base_styles from '../../styles.module.css';
 
 export const Сomment = ({comment}) => {
     return (
-        <div className={ base_styles.card }>
+        <section className={ base_styles.card }>
             <a className={ styles.name } href="/">
                 { comment.name }
             </a>
             <div className={ styles.right }>
-                    { comment.rating }
-                </div>
+                { comment.rating }
+            </div>
             <p>{ comment.text }</p>
-        </div>
+        </section>
     )
 }
