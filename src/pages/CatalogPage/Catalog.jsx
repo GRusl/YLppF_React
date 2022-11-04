@@ -8,31 +8,33 @@ import styles from "./styles.module.css"
 export const CatalogPage = (props) => {
     const [activeSection, setActiveSection] = useState(props.sections[0]);
 
-    return <div className={ styles.content }>
-        <aside className={ styles.linksList }>
-            <ul className={ styles.linkUl }>
+    return (
+        <div className={ styles.content }>
+            <aside className={ styles.linksList }>
+                <ul className={ styles.linkUl }>
+                    {
+                        props.sections.map((section) =>
+                            <li className={ classnames(styles.linkLi, (section === activeSection)?styles.linkLi_active:0) }
+                                key={ section.id }
+                                onClick={ () => setActiveSection(section)}>
+                                { section.title }
+                            </li>
+                        )
+                    }
+                </ul>
+            </aside>
+            <div className={ styles.contentMain }>
                 {
-                    props.sections.map((section) =>
-                        <li className={ classnames(styles.linkLi, (section === activeSection)?styles.linkLi_active:0) }
-                            key={ section.id }
-                            onClick={ () => setActiveSection(section)}>
-                            { section.title }
-                        </li>
+                    activeSection.books.map((book) =>
+                        <Item id={ book.id }
+                              title={ book.title }
+                              author={ book.authority }
+                              genre={ book.genre }
+                              rating={ book.rating }
+                              price={ book.price } />
                     )
                 }
-            </ul>
-        </aside>
-        <div className={ styles.contentMain }>
-            {
-                activeSection.books.map((book) =>
-                    <Item id={ book.id }
-                          title={ book.title }
-                          author={ book.authority }
-                          genre={ book.genre }
-                          rating={ book.rating }
-                          price={ book.price } />
-                )
-            }
+            </div>
         </div>
-    </div>
+    )
 }
