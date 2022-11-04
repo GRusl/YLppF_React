@@ -4,6 +4,7 @@ import base_styles from '../../styles.module.css';
 import classnames from 'classnames';
 
 import {useState} from "react";
+import {Rating} from "../Rating/Rating";
 
 export const Item = ({book, className=0}) => {
     const [count, setCount] = useState(0);
@@ -15,7 +16,9 @@ export const Item = ({book, className=0}) => {
                 <ul className={ styles.infoUl }>
                     <li className={ styles.infoLi }>{ book.author }</li>
                     <li className={ styles.infoLi }>{ book.genre }</li>
-                    <li className={ styles.infoLi }>{ book.rating } / 5</li>
+                    <li className={ styles.infoLi }>
+                        <Rating value={ book.rating } className={ styles.infoLi }/>
+                    </li>
                 </ul>
                 <p className={ styles.price }>{ book.price }₽</p>
             </div>

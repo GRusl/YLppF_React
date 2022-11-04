@@ -1,5 +1,6 @@
 import styles from './styles.module.css';
 import base_styles from '../../styles.module.css';
+import {Rating} from "../Rating/Rating";
 
 // import {useState} from "react";
 
@@ -9,9 +10,7 @@ export const Сomment = ({comment}) => {
             <a className={ styles.name } href="/">
                 { comment.name }
             </a>
-            <div className={ styles.right }>
-                { comment.rating }
-            </div>
+            <Rating value={ comment.rating } className={ styles.right }/>
             <p>{ comment.text }</p>
         </section>
     )
