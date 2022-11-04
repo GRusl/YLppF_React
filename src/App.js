@@ -14,9 +14,10 @@ function App() {
 
             <main className={ styles.main }>
                 {
-                    // <CatalogPage sections={ sections }/>
+                    //
+                    //<DetailPage sections={ sections }/>
                 }
-                <DetailPage sections={ sections }/>
+                <CatalogPage sections={ sections }/>
             </main>
         </>
     );

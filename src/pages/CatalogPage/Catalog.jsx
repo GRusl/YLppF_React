@@ -26,7 +26,7 @@ export const CatalogPage = (props) => {
             <div className={ styles.contentMain }>
                 {
                     activeSection.books.map((book) =>
-                        <Item book={ book } />
+                        <Item book={ book } key={ book.id } />
                     )
                 }
             </div>
