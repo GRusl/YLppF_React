@@ -6,18 +6,23 @@ import classnames from 'classnames';
 import {useState} from "react";
 import {Rating} from "../Rating/Rating";
 
-export const Item = ({book, className=0}) => {
+export const Item = ({book, className=0, down=false}) => {
     const [count, setCount] = useState(0);
 
     return (
-        <section className={ classnames(styles.item, base_styles.card, className) }>
+        <section className={ classnames(
+            styles.item,
+            base_styles.card,
+            className,
+            (down)?styles.down:0
+        ) }>
             <div className={ styles.infoBlock }>
                 <div className={ styles.title }>{ book.title }</div>
                 <ul className={ styles.infoUl }>
                     <li className={ styles.infoLi }>{ book.author }</li>
                     <li className={ styles.infoLi }>{ book.genre }</li>
                     <li className={ styles.infoLi }>
-                        <Rating value={ book.rating } className={ styles.infoLi }/>
+                        <Rating value={ book.rating } className={ styles.infoLi } />
                     </li>
                 </ul>
                 <p className={ styles.price }>{ book.price }₽</p>
