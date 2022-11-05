@@ -5,6 +5,7 @@ import classnames from 'classnames';
 
 import styles from "./styles.module.css"
 
+
 export const CatalogPage = (props) => {
     const [activeSection, setActiveSection] = useState(props.sections[0]);
 
