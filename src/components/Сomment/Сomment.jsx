@@ -7,9 +7,9 @@ import {Rating} from "../Rating/Rating";
 export const Сomment = ({comment}) => {
     return (
         <section className={ base_styles.card }>
-            <a className={ styles.name } href="/">
+            <div className={ styles.name }>
                 { comment.name }
-            </a>
+            </div>
             <Rating value={ comment.rating } className={ styles.right }/>
             <p>{ comment.text }</p>
         </section>
