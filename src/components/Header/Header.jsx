@@ -1,4 +1,4 @@
-import logo from './shopping-cart.svg';
+import logo from '../../static/shopping-cart.svg';
 
 import classnames from 'classnames';
 
