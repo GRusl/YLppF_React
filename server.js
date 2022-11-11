@@ -29,6 +29,17 @@ app.get('/genres/:id', (req,res) => {
     res.send({data: genre.books})
 })
 
+app.get('/books/:id', (req,res) => {
+    const arr = []
+    DB.forEach(item => {
+        item.books.forEach(book => {
+            arr.push(book)
+        })
+    })
+    const result = arr.find(e => e.id === req.params.id)
+    res.send({data: result})
+})
+
 app.listen(port, 'localhost', function (err) {
   if (err) {
     console.log(err);
