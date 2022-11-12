@@ -62,9 +62,9 @@ export function CartPage() {
             </aside>
             <div className={ styles.contentMain }>
                 {
-                    books_id.map((id) =>
+                    (sum !== 0)?(books_id.map((id) =>
                         <Item book={ all_books[id] } key={ id }/>
-                    )
+                    )):(<h2>Ваша корзина пуста... Это очень плохо! Ведь я хочу кушать 😑</h2>)
                 }
             </div>
         </div>
