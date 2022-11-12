@@ -23,7 +23,7 @@ export const Item = ({book, className=0, down=false, href=''}) => {
                     <li className={ styles.infoLi }>{ book.authors.join(', ') }</li>
                     <li className={ styles.infoLi }>{ book.genre }</li>
                     <li className={ styles.infoLi }>
-                        <Rating value={ book.rating } className={ styles.infoLi } />
+                        <Rating value={ book.mark } className={ styles.infoLi } />
                     </li>
                 </ul>
                 <p className={ styles.price }>{ book.price }₽</p>
