@@ -22,11 +22,7 @@ export const DetailPage = () => {
 
     const book = useSelector(state => selectBookById(state, params.bookId));
 
-    console.log(params.bookId, book)
-
     if (Object.keys(book).length === 0) return null;
-
-    console.log(book.annotation, '<><><><><><>')
 
     return (
         <>

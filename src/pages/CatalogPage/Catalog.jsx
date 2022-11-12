@@ -23,9 +23,6 @@ export function CatalogPage() {
     const categories_one_data = useSelector(state => selectCategoryById(state,
         (Object.keys(params).length === 0)?0:params.categoryId));
 
-    console.log('-=-=-=-=-=-=-')
-    console.log(categories)
-
     if (categories.length === 0) return null;
     if (Object.keys(params).length === 0) {
         return <Navigate to={`/categories/${categories[0].id}`}></Navigate>
