@@ -44,7 +44,7 @@ export function CatalogPage() {
                 <div className={ styles.contentMain }>
                     {
                         categories_one_data.books.map((book) =>
-                            <Item book={ book } key={ book.id } href={`/book/${book.id}`} />
+                            <Item book={ book } key={ book.id } />
                         )
                     }
                 </div>
