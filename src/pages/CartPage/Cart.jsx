@@ -21,7 +21,7 @@ export function CartPage() {
 
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(loadBookIfNotExist(Object.keys(books)))
+        dispatch(loadBooksIfNotExist())
     }, [])
 
     const all_books_ = useSelector(selectBooks)
