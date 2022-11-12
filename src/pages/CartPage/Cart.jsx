@@ -13,6 +13,12 @@ export function CartPage() {
     const books = useSelector((state) => selectCartModule(state));
     console.log(books, 'books')
 
+    const books_id = [];
+    for (const [id, cnt] of Object.entries(books)) {
+        if (cnt > 0) books_id.push(id);
+    }
+    console.log(books_id, 'books_id')
+
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(loadBookIfNotExist(Object.keys(books)))
@@ -23,16 +29,10 @@ export function CartPage() {
         return null;
     }
     let all_books = {}
-    for (const book of all_books_){
-        all_books[book.id] = book
+    for (const id of books_id){
+        all_books[id] = all_books_[id]
     }
     console.log(all_books, 'all_books')
-
-    const books_id = [];
-    for (const [id, cnt] of Object.entries(books)) {
-        if (cnt > 0) books_id.push(id);
-    }
-    console.log(books_id, 'books_id')
 
     const sum = books_id.map((id) => all_books[id].price * books[id]).reduce((partialSum, a) => partialSum + a, 0);
 

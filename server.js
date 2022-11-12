@@ -33,6 +33,16 @@ app.get('/genres/:id', (req,res) => {
     res.send(data)
 })
 
+app.get('/books', (req,res) => {
+    let books = []
+    for (const genre of DB) {
+        for (const book of genre.books) {
+            books.push(book)
+        }
+    }
+    res.send(books)
+})
+
 app.get('/books/:id', (req,res) => {
     let break_ = false
     let book
