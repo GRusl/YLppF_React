@@ -3,6 +3,22 @@
     align-items: stretch;
 }
 
+.title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.price {
+    font-weight: bold;
+}
+
+.totalPrice {
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+
 .linksList {
     background-color: #fff;
     border-radius: 10px;
@@ -21,6 +37,7 @@
 }
 
 .linkUl {
+    height: 100%;
     padding: 0;
 }
 
@@ -28,6 +45,8 @@
     list-style-type: none;
     padding-bottom: 24px;
     font-size: 16px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .linkLi_active {

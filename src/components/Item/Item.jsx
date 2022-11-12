@@ -3,14 +3,17 @@ import base_styles from '../../styles.module.css';
 
 import classnames from 'classnames';
 
-import {useState} from "react";
 import {Rating} from "../Rating/Rating";
 
 import React from 'react';
 import {Link} from "react-router-dom";
+import {cartSlice} from "../../store/cart";
+import {useDispatch, useSelector} from "react-redux";
+import {selectBookCount} from "../../store/cart/selectors";
 
 export const Item = ({book, className=0, down=false, href=''}) => {
-    const [count, setCount] = useState(0);
+    const dispatch = useDispatch();
+    const count = useSelector((state) => selectBookCount(state, book.id));
 
     return (
         <Link className={ classnames(
@@ -30,13 +33,11 @@ export const Item = ({book, className=0, down=false, href=''}) => {
                 </ul>
                 <p className={ styles.price }>{ book.price }₽</p>
             </div>
-            <div className={ styles.counterBlock }>
-                <button className={ styles.counterBtn }
-                        onClick={() => setCount(count - 1)}
-                        disabled={count === 0}>-</button>
-                <div className={ styles.counterText }>{count}</div>
-                <button className={ styles.counterBtn }
-                        onClick={() => setCount(count + 1)}>+</button>
+
+            <div className={ styles.counterBlock } onClick={e => e.preventDefault()}>
+                <button className={ styles.counterBtn } onClick={ () => dispatch(cartSlice.actions.remove(book.id)) } disabled={ !count }>-</button>
+                <div className={ styles.counterText }>{ count || 0 }</div>
+                <button className={ styles.counterBtn } onClick={ () => dispatch(cartSlice.actions.add(book.id)) }>+</button>
             </div>
         </Link>
     )

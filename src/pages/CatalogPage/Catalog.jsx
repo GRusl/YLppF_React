@@ -5,19 +5,11 @@ import classnames from 'classnames';
 
 import styles from "./styles.module.css"
 import {useDispatch, useSelector} from "react-redux";
-import {Navigate, Outlet, useParams} from "react-router-dom";
+import {Navigate, useParams} from "react-router-dom";
 import {loadCategoriesIfNotExist} from "../../store/category/loadCategoriesIfNotExist";
 import {selectCategories, selectCategoryById} from "../../store/category/selectors";
-import * as PropTypes from "prop-types";
 
 import React from 'react';
-
-
-function PageContainer(props) {
-    return null;
-}
-
-PageContainer.propTypes = {children: PropTypes.node};
 
 export function CatalogPage() {
     const dispatch = useDispatch();
@@ -62,14 +54,4 @@ export function CatalogPage() {
             </div>
         )
     }
-
-
-    // return (
-    //     <PageContainer>
-    //         {
-    //             categories.map((category) => <li key={category.id}><a className={({isActive}) => (isActive ? 'active' : '')} href={`/categories/${category.id}`}>{category.name}</a></li>)
-    //         }
-    //         <Outlet/>
-    //     </PageContainer>
-    // )
 }

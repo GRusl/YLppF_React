@@ -11,6 +11,7 @@ import {store} from "./store";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 import React from 'react';
+import {CartPage} from "./pages/CartPage/Cart";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
                             <Route path='/categories/:categoryId' element={<CatalogPage/>} />
                         </Route>
                         <Route path='/book/:bookId' element={<DetailPage/>} />
+                        <Route path='/cart' element={<CartPage/>} />
                     </Routes>
                 </main>
             </BrowserRouter>
