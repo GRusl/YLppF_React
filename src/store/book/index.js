@@ -22,8 +22,6 @@ export const bookSlice = createSlice({
     },
     failLoading: (state) => {
       console.log('fail')
-      state.entities = {};
-      state.ids = [];
       state.status = Statuses.failed;
     },
   },

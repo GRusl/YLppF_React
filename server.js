@@ -26,16 +26,21 @@ app.get('/genres', (req,res) => {
 
 app.get('/genres/:id', (req,res) => {
     const genre = DB.find(item => item.id === req.params.id)
-    res.send(genre.books)
+    var data = {}
+    for (const book_ of genre.books) {
+        data[book_.id] = data
+    }
+    res.send(data)
 })
 
 app.get('/books/:id', (req,res) => {
     let break_ = false
     let book
     for (const genre of DB) {
-        for (const bk of genre.books) {
-            if (bk.id === req.params.id) {
-                book = bk
+        for (const book_ of genre.books) {
+            if (book_.id === req.params.id) {
+                book = book_
+
                 break_ = true
                 break
             }

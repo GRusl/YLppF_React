@@ -5,7 +5,7 @@ import classnames from 'classnames';
 
 import styles from "./styles.module.css"
 import {useDispatch, useSelector} from "react-redux";
-import {Navigate, useParams} from "react-router-dom";
+import {Link, Navigate, useParams} from "react-router-dom";
 import {loadCategoriesIfNotExist} from "../../store/category/loadCategoriesIfNotExist";
 import {selectCategories, selectCategoryById} from "../../store/category/selectors";
 
@@ -38,7 +38,7 @@ export function CatalogPage() {
                             categories.map((section) =>
                                 <li className={ classnames(styles.linkLi, (section.id === params.categoryId)?styles.linkLi_active:0) }
                                     key={ section.id }>
-                                    <a className={ styles.linkA } href={ `/categories/${section.id}` }>{ section.name }</a>
+                                    <Link className={ styles.linkA } to={ `/categories/${section.id}` }>{ section.name }</Link>
                                 </li>
                             )
                         }

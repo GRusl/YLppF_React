@@ -26,9 +26,8 @@ function App() {
 
                 <main className={ styles.main }>
                     <Routes>
-                        <Route path="/" element={<CatalogPage/>} >
-                            <Route path='/categories/:categoryId' element={<CatalogPage/>} />
-                        </Route>
+                        <Route path="/" element={<CatalogPage/>} />
+                        <Route path='/categories/:categoryId' element={<CatalogPage/>} />
                         <Route path='/book/:bookId' element={<DetailPage/>} />
                         <Route path='/cart' element={<CartPage/>} />
                     </Routes>
