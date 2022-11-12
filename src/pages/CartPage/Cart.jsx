@@ -28,10 +28,16 @@ export function CartPage() {
     if (all_books_.length === 0) {
         return null;
     }
+    console.log(all_books_, 'all_books_')
     let all_books = {}
-    for (const id of books_id){
-        all_books[id] = all_books_[id]
+    for (const i in all_books_) {
+        if (books_id.indexOf(all_books_[i].id) !== -1) {
+            all_books[all_books_[i].id] = all_books_[i]
+        }
     }
+    // for (const id of books_id) {
+    //     all_books[id] = all_books_[id]
+    // }
     console.log(all_books, 'all_books')
 
     const sum = books_id.map((id) => all_books[id].price * books[id]).reduce((partialSum, a) => partialSum + a, 0);
@@ -42,15 +48,16 @@ export function CartPage() {
                 <div className={ styles.title }>Ваш заказ:</div>
                 <ul className={ styles.linkUl }>
                     {
-                        books_id.map((id) =>
+                        (sum !== 0)?(books_id.map((id) =>
                             <li className={ styles.linkLi }>
                                 { all_books[id].name }<span className={ styles.price }>{ all_books[id].price }₽</span>
                             </li>
-                        )
+                        )):(<h2>Ваша корзина пуста...</h2>)
                     }
                 </ul>
                 <div className={ styles.totalPrice }>
                     Итого: { sum }₽
+                    <button className={ styles.buyBtn } >Купить</button>
                 </div>
             </aside>
             <div className={ styles.contentMain }>
