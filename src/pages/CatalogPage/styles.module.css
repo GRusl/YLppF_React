@@ -14,6 +14,11 @@
     min-height: 100%;
 }
 
+.linkA {
+    color: #000;
+    text-decoration: none;
+}
+
 .linkUl {
     padding: 0;
 }

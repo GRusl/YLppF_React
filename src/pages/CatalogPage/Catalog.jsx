@@ -3,49 +3,54 @@ import {useEffect, useState} from "react";
 
 import classnames from 'classnames';
 
-import {loadCategoriesIfNotExist} from '../../store/categorie/loadCategoriesIfNotExist.js'
-
 import styles from "./styles.module.css"
 import {useDispatch, useSelector} from "react-redux";
-import {selectCategories, selectIsCategoriesLoading} from "../../store/categorie/selectors";
+import {Navigate, Outlet, useParams} from "react-router-dom";
+import {loadCategoriesIfNotExist} from "../../store/category/loadCategoriesIfNotExist";
+import {selectCategories, selectCategoryById} from "../../store/category/selectors";
+import * as PropTypes from "prop-types";
+
+import React from 'react';
 
 
-export const CatalogPage = (props) => {
-    const [activeSection, setActiveSection] = useState(props.sections[0]);
+function PageContainer(props) {
+    return null;
+}
 
-    console.log("------------------------");
+PageContainer.propTypes = {children: PropTypes.node};
 
-    const dispatch = useDispatch()
-    console.log("------------------------");
+export function CatalogPage() {
+    const dispatch = useDispatch();
+    const params = useParams();
+
     useEffect(() => {
-        dispatch(loadCategoriesIfNotExist)
-    }, [dispatch])
-    console.log("////////////////////////");
-    const categories = useSelector(selectCategories)
-    console.log("////////////////////////");
-    console.log(categories);
-    const isLoading = useSelector(selectIsCategoriesLoading)
-    console.log(isLoading);
-    console.log("========================");
+        dispatch(loadCategoriesIfNotExist);
+    }, [params]);
 
-    if (isLoading) {
-        return (
-            <>
-                <h1>Loading</h1>
-            </>
-        )
+    const categories = useSelector(state => selectCategories(state));
+    const categories_one_data = useSelector(state => selectCategoryById(state,
+        (Object.keys(params).length === 0)?0:params.categoryId));
+
+
+    console.log('-=-=-=-=-=-=-')
+    console.log(categories)
+
+    if (categories.length === 0) return null;
+    if (Object.keys(params).length === 0) {
+        console.log('///////////////')
+        return <Navigate to={`/categories/${categories[0].id}`}></Navigate>
     } else {
-        console.log("ELSE");
+        console.log(categories_one_data)
+        console.log('\\\\\\\\\\\\\\')
         return (
-            <div className={ styles.content }>
+           <div className={ styles.content }>
                 <aside className={ styles.linksList }>
                     <ul className={ styles.linkUl }>
                         {
-                            props.sections.map((section) =>
-                                <li className={ classnames(styles.linkLi, (section === activeSection)?styles.linkLi_active:0) }
-                                    key={ section.id }
-                                    onClick={ () => setActiveSection(section)}>
-                                    { section.title }
+                            categories.map((section) =>
+                                <li className={ classnames(styles.linkLi, (section.id === params.categoryId)?styles.linkLi_active:0) }
+                                    key={ section.id }>
+                                    <a className={ styles.linkA } href={ `/categories/${section.id}` }>{ section.name }</a>
                                 </li>
                             )
                         }
@@ -53,7 +58,7 @@ export const CatalogPage = (props) => {
                 </aside>
                 <div className={ styles.contentMain }>
                     {
-                        activeSection.books.map((book) =>
+                        categories_one_data.books.map((book) =>
                             <Item book={ book } key={ book.id } />
                         )
                     }
@@ -61,4 +66,14 @@ export const CatalogPage = (props) => {
             </div>
         )
     }
+
+
+    // return (
+    //     <PageContainer>
+    //         {
+    //             categories.map((category) => <li key={category.id}><a className={({isActive}) => (isActive ? 'active' : '')} href={`/categories/${category.id}`}>{category.name}</a></li>)
+    //         }
+    //         <Outlet/>
+    //     </PageContainer>
+    // )
 }

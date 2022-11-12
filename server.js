@@ -10,23 +10,23 @@ app.use(function (req, res, next) {
 });
 
 app.get('/test', (req,res) => {
-    res.send({data: 'Everything is OK!'})
+    res.send('Everything is OK!')
 })
 
 app.get('/full-data', (req,res) => {
-    res.send({data: DB})
+    res.send(DB)
 })
 
 app.get('/genres', (req,res) => {
     const genres = DB.map(item => {
-        return {id: item.id, name: item.name}
+        return {id: item.id, name: item.name, books: item.books}
     })
-    res.send({data: genres})
+    res.send(genres)
 })
 
 app.get('/genres/:id', (req,res) => {
     const genre = DB.find(item => item.id === req.params.id)
-    res.send({data: genre.books})
+    res.send(genre.books)
 })
 
 app.get('/books/:id', (req,res) => {
@@ -37,7 +37,7 @@ app.get('/books/:id', (req,res) => {
         })
     })
     const result = arr.find(e => e.id === req.params.id)
-    res.send({data: result})
+    res.send(result)
 })
 
 app.listen(port, 'localhost', function (err) {

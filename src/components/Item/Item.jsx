@@ -6,6 +6,8 @@ import classnames from 'classnames';
 import {useState} from "react";
 import {Rating} from "../Rating/Rating";
 
+import React from 'react';
+
 export const Item = ({book, className=0, down=false}) => {
     const [count, setCount] = useState(0);
 

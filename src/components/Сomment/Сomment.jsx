@@ -2,6 +2,8 @@ import styles from './styles.module.css';
 import base_styles from '../../styles.module.css';
 import {Rating} from "../Rating/Rating";
 
+import React from 'react';
+
 // import {useState} from "react";
 
 export const Сomment = ({comment}) => {

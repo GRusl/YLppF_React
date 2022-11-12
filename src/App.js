@@ -8,6 +8,9 @@ import {DetailPage} from "./pages/DetailPage/Detail";
 import {sections} from "./constants/mock";
 import {Provider} from "react-redux";
 import {store} from "./store";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+
+import React from 'react';
 
 
 function App() {
@@ -17,11 +20,18 @@ function App() {
      */
     return (
         <Provider store={store}>
-            <Header/>
+            <BrowserRouter>
+                <Header/>
 
-            <main className={ styles.main }>
-                <CatalogPage sections={ sections }/>
-            </main>
+                <main className={ styles.main }>
+                    <Routes>
+                        <Route path="/" element={<CatalogPage/>} >
+                            <Route path='/categories/:categoryId' element={<CatalogPage/>} />
+                        </Route>
+                        <Route path='/books/:bookId' element={<DetailPage/>} />
+                    </Routes>
+                </main>
+            </BrowserRouter>
         </Provider>
     );
 }

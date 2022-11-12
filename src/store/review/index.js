@@ -7,21 +7,19 @@ const initialState = {
   status: Statuses.idle,
 };
 
-export const bookSlice = createSlice({
-  name: "book",
+export const reviewSlice = createSlice({
+  name: "review",
   initialState,
   reducers: {
     startLoading: (state) => {
       state.status = Statuses.inProgress;
     },
     successLoading: (state, action) => {
-      console.log('success loading')
       state.status = Statuses.success;
       state.entities = { ...state.entities, ...action.payload.entities };
       state.ids = Array.from(new Set([...state.ids, ...action.payload.ids]));
     },
     failLoading: (state) => {
-      console.log('fail')
       state.status = Statuses.failed;
     },
   },

@@ -4,6 +4,8 @@ import classnames from 'classnames';
 
 import styles from './styles.module.css';
 
+import React from 'react';
+
 export const Header = ({title='Магазин'}) => {
     return (
         <header className={ styles.header }>

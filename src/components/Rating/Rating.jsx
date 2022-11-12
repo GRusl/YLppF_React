@@ -1,5 +1,4 @@
-import classnames from "classnames";
-import styles from "../../pages/CatalogPage/styles.module.css";
+import React from 'react';
 
 export const Rating = ({value, max=5, className=0}) => {
     return (

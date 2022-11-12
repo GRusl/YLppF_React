@@ -1,24 +1,9 @@
-import {Statuses} from '../../constants/statuses.js'
+export const selectBookModule = (state) => state.book;
 
-function selectedBookModule(state) {
-    return state.book
-}
+export const selectBooks = (state) =>
+    Object.values(selectBookModule(state).entities);
 
-function selectBooks(state) {
-    return Object.values(selectedBookModule(state).entities)
-}
+export const selectBookById = (state, id) =>
+    selectBookModule(state).entities[id] || {};
 
-function selectIsBooksLoading(state) {
-    return selectedBookModule(state).status === Statuses.inProgress
-}
-
-function selectIsBooksLoaded(state) {
-    return selectedBookModule(state).status === Statuses.success
-}
-
-function selectBookById(state, id) {
-    console.log(selectedBookModule(state).entities)
-    return selectedBookModule(state).entities[id]
-}
-
-export { selectedBookModule, selectBooks, selectIsBooksLoading, selectBookById, selectIsBooksLoaded }
+export const selectBookReviews = (state, id) => selectBookById(state, id)?.reviews || [];
