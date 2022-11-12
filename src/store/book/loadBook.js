@@ -3,12 +3,11 @@ import { prepareData } from './utils.js'
 
 export const loadBook = (id) => (dispatch, getState) => {
 	dispatch(bookSlice.actions.startLoading())
+	console.log(123, '=======')
 	fetch(`http://localhost:3001/books/${id}`)
 		.then((response) => response.json())
 		.then((res) => {
-			let a = prepareData(res)
-			console.log(a)
-			dispatch(bookSlice.actions.successLoading(a))
+			dispatch(bookSlice.actions.successLoading(prepareData(res)))
 		})
 		.catch(() => {
 			dispatch(bookSlice.actions.failLoading())

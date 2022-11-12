@@ -28,7 +28,7 @@ function App() {
                         <Route path="/" element={<CatalogPage/>} >
                             <Route path='/categories/:categoryId' element={<CatalogPage/>} />
                         </Route>
-                        <Route path='/books/:bookId' element={<DetailPage/>} />
+                        <Route path='/book/:bookId' element={<DetailPage/>} />
                     </Routes>
                 </main>
             </BrowserRouter>

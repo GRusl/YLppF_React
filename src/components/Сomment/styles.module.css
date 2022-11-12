@@ -1,3 +1,9 @@
+.h {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .name {
     color: #000;
     font-size: 20px;
@@ -7,5 +13,5 @@
 
 .right {
     float: right;
-    display: inline-block;
+    color: #b6b6b6;
 }

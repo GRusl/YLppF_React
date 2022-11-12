@@ -4,15 +4,15 @@ import {Rating} from "../Rating/Rating";
 
 import React from 'react';
 
-// import {useState} from "react";
-
 export const Сomment = ({comment}) => {
     return (
         <section className={ base_styles.card }>
-            <div className={ styles.name }>
-                { comment.name }
+            <div className={ styles.h }>
+                <div className={ styles.name }>
+                    { comment.user.name }
+                </div>
+                <Rating value={ comment.rating } className={ styles.right }/>
             </div>
-            <Rating value={ comment.rating } className={ styles.right }/>
             <p>{ comment.text }</p>
         </section>
     )

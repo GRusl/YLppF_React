@@ -6,4 +6,3 @@ export const selectBooks = (state) =>
 export const selectBookById = (state, id) =>
     selectBookModule(state).entities[id] || {};
 
-export const selectBookReviews = (state, id) => selectBookById(state, id)?.reviews || [];

@@ -30,14 +30,21 @@ app.get('/genres/:id', (req,res) => {
 })
 
 app.get('/books/:id', (req,res) => {
-    const arr = []
-    DB.forEach(item => {
-        item.books.forEach(book => {
-            arr.push(book)
-        })
-    })
-    const result = arr.find(e => e.id === req.params.id)
-    res.send(result)
+    let break_ = false
+    let book
+    for (const genre of DB) {
+        for (const bk of genre.books) {
+            if (bk.id === req.params.id) {
+                book = bk
+                break_ = true
+                break
+            }
+        }
+        if (break_) {
+            break
+        }
+    }
+    res.send([book])
 })
 
 app.listen(port, 'localhost', function (err) {

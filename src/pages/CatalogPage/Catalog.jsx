@@ -31,17 +31,13 @@ export function CatalogPage() {
     const categories_one_data = useSelector(state => selectCategoryById(state,
         (Object.keys(params).length === 0)?0:params.categoryId));
 
-
     console.log('-=-=-=-=-=-=-')
     console.log(categories)
 
     if (categories.length === 0) return null;
     if (Object.keys(params).length === 0) {
-        console.log('///////////////')
         return <Navigate to={`/categories/${categories[0].id}`}></Navigate>
     } else {
-        console.log(categories_one_data)
-        console.log('\\\\\\\\\\\\\\')
         return (
            <div className={ styles.content }>
                 <aside className={ styles.linksList }>
@@ -59,7 +55,7 @@ export function CatalogPage() {
                 <div className={ styles.contentMain }>
                     {
                         categories_one_data.books.map((book) =>
-                            <Item book={ book } key={ book.id } />
+                            <Item book={ book } key={ book.id } href={`/book/${book.id}`} />
                         )
                     }
                 </div>

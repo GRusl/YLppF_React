@@ -7,17 +7,18 @@ import {useState} from "react";
 import {Rating} from "../Rating/Rating";
 
 import React from 'react';
+import {Link} from "react-router-dom";
 
-export const Item = ({book, className=0, down=false}) => {
+export const Item = ({book, className=0, down=false, href=''}) => {
     const [count, setCount] = useState(0);
 
     return (
-        <section className={ classnames(
+        <Link className={ classnames(
             styles.item,
             base_styles.card,
             className,
             (down)?styles.down:0
-        ) }>
+        ) } to={ href }>
             <div className={ styles.infoBlock }>
                 <div className={ styles.title }>{ book.name }</div>
                 <ul className={ styles.infoUl }>
@@ -37,6 +38,6 @@ export const Item = ({book, className=0, down=false}) => {
                 <button className={ styles.counterBtn }
                         onClick={() => setCount(count + 1)}>+</button>
             </div>
-        </section>
+        </Link>
     )
 }
