@@ -19,7 +19,7 @@ export const Item = ({book, className=0, down=false}) => {
             (down)?styles.down:0
         ) }>
             <div className={ styles.infoBlock }>
-                <div className={ styles.title }>{ book.title }</div>
+                <div className={ styles.title }>{ book.name }</div>
                 <ul className={ styles.infoUl }>
                     <li className={ styles.infoLi }>{ book.author }</li>
                     <li className={ styles.infoLi }>{ book.genre }</li>
